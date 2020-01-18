@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <cmath>
+
+//遞迴函式//
+int	func(int input)
+{
+  //當input是0或1時，回傳input+1//
+	if(input==0||input==1){
+		return input+1;
+	}
+  //其他則做recursive的動作//
+	else return func(input-1)+func(ceil(input/2));
+}
+
+int main()
+{
+	int input=0;
+	scanf("%d", &input);
+	printf("%d\n", func(input));
+	return 0;
+}
