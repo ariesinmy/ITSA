@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	int input=0,i=0;
+	
+	scanf("%d", &input);
+	
+  //使用一個for迴圈，從input開始慢慢遞減，到input-2，找出“最近的3的倍數”
+	for(i=input; i>=input-2; i--) 
+	{
+    	if(i%3) continue;
+    	else break;
+	}
+  
+	//利用等差級數的公式，來找出“正整數被3整除之數值之總和”
+	printf("%d\n", i/3*(3+i)/2);
+	return 0;
+} 
