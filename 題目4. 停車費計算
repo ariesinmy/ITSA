@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int S_Hour=0, S_Min=0, E_Hour=0, E_Min=0;
+	
+	scanf("%d%d", &S_Hour, &S_Min);// start time
+	scanf("%d%d", &E_Hour, &E_Min);// end time
+	
+	//注意time用分鐘來計算：hour*60 + min//
+	int time = ((E_Hour*60 + E_Min)-(S_Hour*60 + S_Min));//calculate total spending time
+	
+	if(time<=120 && time>=0){
+		printf("%d\n", time/30*30);// condition: Less than 2 hours
+	}else if(time>120 && time<=240){
+		printf("%d\n", (time-120)/30*40+120); //condition: less than 4 hours
+	}else{
+		printf("%d\n",(time-240)/30*60+120+160);//condition: Over 4 hours and it's before
+	}
+	return 0;
+} 
