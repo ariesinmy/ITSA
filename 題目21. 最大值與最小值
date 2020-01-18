@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+	float input[100];
+	int i;
+  
+  //輸入十個數值//
+	for(i=0; i<10; i++){
+		scanf("%f", &input[i]);
+	}
+	
+  //把input中的第一個數值賦予給max和min//
+	float max = input[0], min = input[0];
+	
+  //把max和min與後來的九個數值進行比較//
+	for(i=1; i<10; i++){
+    //若後來的數值大於max，則將其賦予給max//
+		if(max < input[i]){
+			max = input[i];
+		}
+    //若後來的數值小於min，則將其賦予給min//
+		if(min > input[i]){
+			min = input[i];
+		}
+	}
+  
+  //印出結果，印出小數後二位
+	printf("maximun:%.2f\n", max);
+	printf("minimum:%.2f\n", min);
+}
