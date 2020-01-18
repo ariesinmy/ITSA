@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+	int input=0;
+	
+	scanf("%d", &input);//read in input(month)
+	
+	switch(input/3)
+	{
+		case 1:printf("Spring\n");break;//when input is 3 4 5, quotient is 1 
+		case 2:printf("Summer\n");break;//when input is 6 7 8, quotient is 2
+		case 3:printf("Autumn\n");break;//when input is 9 10 11, quotient is 3 
+		default :printf("Winter\n");;//other input
+	}
+	return 0;
+} 
