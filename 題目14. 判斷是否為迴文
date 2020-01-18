@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+  char line[100], *ptr, reverse[100]; //用line存輸入的字串，用reverse存翻轉後的字串
+  int i=0, len=0;
+
+	scanf("%s", line); 
+	len = strlen(line); //get line's length
+    
+  //做字串翻轉//
+  for(i=0; i<len; i++){
+      reverse[i] = line[len-i-1];
+  }
+  
+  //在reverse陣列的len的位置放\0，防止亂碼或者其他東西//
+	reverse[len] = '\0';
+    
+  //用strcmp比對line和reverse，如果一樣就印出YES，不一樣就印出NO 
+	if(strcmp(reverse, line)==0){
+      printf("YES\n");
+    }else{
+    	printf("NO\n");
+	}
+}
+
+
+//連續輸入版本//
+/* 
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+  char line[100], *ptr, reverse[100];
+  int i=0, len=0;  
+
+  while(fgets(line,1024,stdin)){
+    len = strlen(line);
+    if(line[len-1]=='\n'){
+      line[len-1] = '\0';
+    }
+  
+    for(i=0; i<len; i++){
+      reverse[i] = line[len-i-2];
+    }
+    reverse[len-1] = '\0';   //
+    if(strcmp(reverse, line)==0){
+      printf("YES\n");
+    } 
+  }
+}
+*/
+
+  
+  
