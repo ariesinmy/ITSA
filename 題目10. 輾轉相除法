@@ -1,0 +1,20 @@
+#include<stdio.h>
+
+int main()
+{
+	int a,b,r;
+	
+	scanf("%d%d",&a,&b);
+	r=a%b; //用r去存兩個input的mod
+	
+	//輾轉相除法
+	while(r!=0)
+	{
+		a=b;
+		b=r;
+		r=a%b;
+	}
+  
+	printf("%d\n",b);
+	return 0;
+}
