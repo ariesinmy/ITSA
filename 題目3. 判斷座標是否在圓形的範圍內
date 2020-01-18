@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	double x, y;
+	//輸入兩個input，用double的形式
+	scanf("%lf%lf", &x, &y);
+  
+  //由題目得知直徑是200，即半徑是100
+  //勾股定律： x*x + y*y = 100 * 100
+  //因此我們用d去存x*x + y*y，再判斷d的開根號會不會小於等於100
+  
+	double d = x*x + y*y;
+	if (pow(d, 0.5) <= 100) //若是小於等於100，則該坐標位置在園內
+	{
+		printf("inside\n");
+	}
+	else { //若是不是小於等於100，則該坐標位置在園外
+		printf("outside\n");
+	}
+	return 0;
+}
