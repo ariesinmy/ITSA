@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main(){
+	int input,i;
+	
+  //讀入數值//
+	scanf("%d", &input); 
+	
+  //用一個for迴圈判斷，從2開始，到小於自己的每個數，都拿來與自己做mod
+  //如果mod的結果是0，表示可以被整除，即input不是質數，所以break出後，i不會等於input，而是能整除input的某個數
+  //如果在2~input-1的範圍中沒有可以整除input的數，則它是質數，所以跳出for迴圈時，i會等於input
+	for(i=2; i <= input-1; i++ ){
+		if(input%i==0) break;
+	}
+	
+  //當i等於input時，輸出YES；當i不等於input時，輸出NO
+	if(i==input){ 
+		printf("YES\n");
+	}else{ 
+		printf("NO\n");
+	}
+	
+}
+
+//連續輸入版本//
+/*
+int main(){
+	int n;
+	int i;
+	
+	while(scanf("%d",&n)!=EOF){
+		for(i=2; i <= n-1; i++ ){
+			if(n%i==0) break;
+		}
+	if(i==n)
+	printf("is_prime\n");
+	
+	else 
+	printf("is_not_prime\n");
+	}
+}
+*/
+	
