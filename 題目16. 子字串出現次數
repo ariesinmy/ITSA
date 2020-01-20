@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+//字串遞迴(檢索字串，起始位置，被檢索字串) 
+int appearNum(char* inputS,int p,char* inputL)
+{
+	int a=0, i;
+    char s[100], l[100];
+    strcpy(s, inputS); strcpy(l, inputL);
+
+	if(p > strlen(l)){ 
+        return 0; //若偏移長度大於被檢索字串長度則回傳0
+    }
+    
+	for(i=0; i<strlen(s); i++)//依檢索字串長度進行迴圈 
+	{
+		if(l[i+p]==s[i]) continue;//若比對符合，則持續比對至完全符合 
+		else return a += appearNum(s,p+1,l);//比對不符回傳當前符合次數 
+	}
+	a++;
+    return a+=appearNum(s,p+1,l);//迴圈完畢表示比對完全符合，計次後往右偏移再測試 
+}
+
+int main()
+{
+	char inputS[100], inputL[100]; //inputS存用來對比的字串， inputL用來存被檢索的字串
+
+	scanf("%s", inputS); scanf("%s", inputL);
+
+    int cnt = appearNum(inputS, 0, inputL);//回傳比對到的次數
+    printf("%d\n", cnt);
+    return 0;
+}
